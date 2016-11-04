@@ -1,0 +1,176 @@
+/*
+
+
+	Tämä on tyylitiedosto.
+
+	CONTENTS -----------
+	1. CSS RESET       -
+	2. BASIC STYLES    -
+	3. TEXT STYLES     -
+	4. RESIZABLE       -
+	5. THREEJS         -
+	--------------------
+
+
+*/
+
+/* 1. CSS RESET */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+/* 2. BASIC STYLES */
+
+body {
+	margin: 0;
+	--grey-basic-color: #3D3C3A;
+	--grey-light-color: #D3D3D3;
+	--grey-darker-light-color: #939393;
+	background: var(--grey-basic-color);
+	font-family: 'Merriweather Sans', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  position: relative;
+}
+
+.bump-text {
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 4em;
+	text-shadow: 2px 2px 3px rgba(255,255,255,0.15);
+}
+
+.container {
+	display: flex;
+}
+
+.nav-container {
+	position: relative;
+	display: inline-block;
+	width: 200px;
+	height: 100vh;
+	background: whitesmoke;
+	transition: width .2s;
+}
+
+.navi-item {
+	text-transform: uppercase;
+	text-decoration: none;
+	display: block;
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	transition: all .3s;
+	background-color: whitesmoke;
+	color: var(--grey-light-color);
+	text-align: center;
+}
+
+.navi-item:hover {
+	cursor: pointer;
+}
+
+p.navi-item {
+	border-bottom: 1px solid grey;
+}
+
+.navi-item > span {
+	line-height: 50px;
+	color: var(--grey-light-color);
+	transition: color .2s;
+}
+
+.active, .active > span {
+	color: var(--grey-darker-light-color);
+}
+
+.navi-item:hover:not(.active) > span {
+	color: black;
+}
+
+.content {
+	flex-grow: 1;
+}
+
+
+/* 3. TEXT STYLES */
+.sub-header {
+	font-style: italic;
+}
+
+/* 4. RESIZABLE */
+.react-resizable {
+  position: relative;
+}
+.react-resizable-handle {
+  position: absolute;
+  width: 20px;
+  height: 100vh;
+  top: 0;
+  right: 0;
+	background-color: whitesmoke;
+	border-right: 1px solid grey;
+	border-left: 1px solid lightgrey;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  box-sizing: border-box;
+  cursor: col-resize;
+}
+
+/* 5. THREEJS */
+canvas {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
