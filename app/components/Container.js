@@ -8,7 +8,6 @@ export class Container extends Component {
 		this.state = {
 			activePage: props.location.pathname,
 			loading: true,
-			itemCount: 1000,
 			percentage: 0,
 		};
 		this.loadingStarted = false;
@@ -31,7 +30,7 @@ export class Container extends Component {
 	}
 
 	render() {
-		const { activePage, loading, itemCount, percentage } = this.state;
+		const { activePage, loading, percentage } = this.state;
 		return (
 			<div className="container">
 			  <Nav activePage={activePage} changePage={ this.changePage.bind(this) } />
@@ -39,7 +38,7 @@ export class Container extends Component {
 					{
 						React.cloneElement(this.props.children, { 
 							updateProgressBar: this.updateProgressBar.bind(this),
-							itemCount: itemCount,
+							itemCount: 1000,
 						})
 					}
 			  </div>

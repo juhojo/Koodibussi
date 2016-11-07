@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import faker from 'faker';
+import { Scrollbars } from 'react-custom-scrollbars';
 import TableItem from '../components/TableItem.js';
 
 export class Home extends Component {
@@ -10,6 +11,8 @@ export class Home extends Component {
 		let i = 0;
 		const contents = [];
 		this.populate = () => {
+			// Using setTimeout to populate the table without freezing the browser.
+			// It allows us to do the populate asyncronously.
 			setTimeout(() => {
 				contents.push(
 					<TableItem
@@ -23,20 +26,28 @@ export class Home extends Component {
 				else { this.setState({ tbody: <tbody>{ contents }</tbody> }); }
 			}, 0);
 		}
+		this.height = 0;
 	}
 
-	componentDidMount() { this.populate.call(this) };
+	componentDidMount() {
+		this.populate.call(this);
+		this.height = ReactDOM.findDOMNode(this.refs.table).height;
+	};
 
 	render() {
 		const { tbody } = this.state;
 		return (
 			<div>
 				<h1 className="bump-text">Koodibussi</h1>
-				<div className="table-contents">
-					<table>
+				<Scrollbars
+					className="table-contents"
+       		renderTrackHorizontal={() => <div style={{ display: "none" }} />}
+        	renderTrackVertical={props => <div {...props} className="track-vertical"/>}
+					style={{ height: this.height }}>
+					<table ref="table">
 						{ tbody }
 					</table>
-				</div>
+				</Scrollbars>
 			</div>
 		);
 	}

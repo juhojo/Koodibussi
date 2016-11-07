@@ -11,7 +11,7 @@ export default class Loader extends Component {
 	}
 
 	windowResize(){
-		const elem=ReactDOM.findDOMNode(this.refs.box);
+		const elem = ReactDOM.findDOMNode(this.refs.box);
 		this.camera = new THREE.PerspectiveCamera(75, elem.offsetWidth/elem.offsetHeight, 1, 10000);
 		this.camera.position.z = 1000;
 		this.renderer.setSize(elem.offsetWidth, elem.offsetHeight);
@@ -41,7 +41,7 @@ export default class Loader extends Component {
 	}
 
 	stop(){
-		if(this.nextFrame) cancelAnimationFrame(this.nextFrame);
+		if (this.nextFrame) cancelAnimationFrame(this.nextFrame);
 	}
 
 	componentDidMount(){
@@ -62,7 +62,7 @@ export default class Loader extends Component {
 				<div className="loader-content">
 					<div ref='box' className="three"/>
 					<div className="loading-bar">
-						<Line percent={ percentage.toString() } strokeWidth="1" strokeColor="#fff" />
+						<Line percent={ percentage.toString() } strokeWidth="1" strokeColor="#aaa" />
 					</div>
 				</div>
 			</div>
