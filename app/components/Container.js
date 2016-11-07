@@ -8,26 +8,42 @@ export class Container extends Component {
 		this.state = {
 			activePage: props.location.pathname,
 			loading: true,
+			itemCount: 1000,
+			percentage: 0,
 		};
+		this.loadingStarted = false;
+		this.percentage = 0;
 	};
 
 	changePage(activePage) {
 		this.setState({ activePage });
 	}
 
-	loadingFinished() {
-		this.setState({ loading: false });
+	updateProgressBar(percentage) {
+		this.percentage = percentage;
+	  this.setState({ percentage });
+	}
+
+	componentDidUpdate() {
+		if (this.percentage === 100 && this.state.loading) {
+			this.setState({ loading: false });
+		}
 	}
 
 	render() {
-		const { activePage, loading } = this.state;
+		const { activePage, loading, itemCount, percentage } = this.state;
 		return (
 			<div className="container">
 			  <Nav activePage={activePage} changePage={ this.changePage.bind(this) } />
 			  <div className="content">
-					{ React.cloneElement(this.props.children, { loadingFinished: this.loadingFinished.bind(this) }) }
+					{
+						React.cloneElement(this.props.children, { 
+							updateProgressBar: this.updateProgressBar.bind(this),
+							itemCount: itemCount,
+						})
+					}
 			  </div>
-	      { loading && <Loader loading={loading} /> }
+	      { loading && <Loader percentage={ percentage } /> }
 			</div>
 		);
 	}
