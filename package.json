@@ -28,6 +28,7 @@
     "react-resizable": "^1.4.5",
     "react-router": "^2.8.1",
     "three": "^0.79.0",
+    "three-collada-loader": "0.0.1",
     "webpack": "^1.13.2"
   },
   "devDependencies": {

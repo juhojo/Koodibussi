@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Line } from 'rc-progress';
-const THREE = require('three'); //Ei toimi suoraan importilla, ei löytyny netistä suoraan, millä nimellä se pitäis importtaa
+const THREE = require('three'); // Did not work with import.
+const ColladaLoader = require('three-collada-loader');
 
 export default class Loader extends Component {
 
@@ -14,32 +15,50 @@ export default class Loader extends Component {
 
 	windowResize(){
 		const elem = ReactDOM.findDOMNode(this.refs.box);
-		this.camera = new THREE.PerspectiveCamera(75, elem.offsetWidth/elem.offsetHeight, 1, 10000);
+		this.camera = new THREE.PerspectiveCamera(75, elem.offsetWidth/elem.offsetHeight, 1, 1000);
 		this.camera.position.z = 1000;
 		this.renderer.setSize(elem.offsetWidth, elem.offsetHeight);
 	}
 
 	animate(){
 		this.nextFrame = requestAnimationFrame(this.animate.bind(this));
-		this.mesh.rotation.x += 0.01;
-		this.mesh.rotation.y += 0.02;
+		this.model.rotation.z -= 0.01;
 		this.renderer.render(this.scene, this.camera);
 	}
 
 	init(elem){
 		this.scene    = new THREE.Scene();
-		this.camera   = new THREE.PerspectiveCamera(50, elem.offsetWidth/elem.offsetHeight, 1, 10000);
-		this.geometry = new THREE.BoxGeometry(300, 300, 300);
-		this.material = new THREE.MeshBasicMaterial({color: 0xff0000, wireframe: true});
+		this.camera   = new THREE.PerspectiveCamera(75, elem.offsetWidth/elem.offsetHeight, .1, 1000);
 		this.renderer = new THREE.WebGLRenderer({alpha: true, antialias: true});
-		this.mesh     = new THREE.Mesh(this.geometry, this.material);
+		this.lightOne = new THREE.DirectionalLight( 0xffffff, 1.1, -400);
+		this.lightTwo = new THREE.DirectionalLight( 0xffffff, 1.1, -400);
+		this.loader   = new ColladaLoader();
+		
+		this.camera.position.set(8,1,4);
+		this.camera.up = new THREE.Vector3(0,0,1);
+		this.camera.lookAt(new THREE.Vector3(0,0,0));
+		this.lightOne.position.set(.3, .5, .3);
+		this.lightTwo.position.set(-.3, -.5, -.3);
 
-		this.camera.position.z = 1000;
-		this.scene.add(this.mesh);
-		this.renderer.setSize(elem.offsetWidth, elem.offsetHeight);
+		this.loader.load('../models/bus.dae', (collada) => {
+			this.model = collada.scene;
+			this.scene.add(this.lightOne, this.lightTwo, this.model);
+			this.renderer.setSize(elem.offsetWidth, elem.offsetHeight);
+			elem.appendChild(this.renderer.domElement);
+			this.animate.call(this);
+		});
+		
+		// this.geometry = new THREE.BoxGeometry(300, 300, 300);
+		// this.material = new THREE.MeshBasicMaterial({color: 0xff0000, wireframe: true});
+		// this.renderer = new THREE.WebGLRenderer({alpha: true, antialias: true});
+		// this.mesh     = new THREE.Mesh(this.geometry, this.material);
 
-		elem.appendChild(this.renderer.domElement);
-		this.animate.call(this);
+		// this.camera.position.z = 10;
+		// this.scene.add(this.mesh);
+		// this.renderer.setSize(elem.offsetWidth, elem.offsetHeight);
+
+		// elem.appendChild(this.renderer.domElement);
+		// this.animate.call(this);
 	}
 
 	stop(){

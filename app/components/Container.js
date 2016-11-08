@@ -38,7 +38,7 @@ export class Container extends Component {
 					{
 						React.cloneElement(this.props.children, { 
 							updateProgressBar: this.updateProgressBar.bind(this),
-							itemCount: 100,
+							itemCount: 1000,
 						})
 					}
 			  </div>
