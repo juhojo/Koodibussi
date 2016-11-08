@@ -27,13 +27,15 @@ export default class Loader extends Component {
 	}
 
 	init(elem){
-		this.scene    = new THREE.Scene();
-		this.camera   = new THREE.PerspectiveCamera(75, elem.offsetWidth/elem.offsetHeight, .1, 1000);
-		this.renderer = new THREE.WebGLRenderer({alpha: true, antialias: true});
-		this.lightOne = new THREE.DirectionalLight( 0xffffff, 1.1, -400);
-		this.lightTwo = new THREE.DirectionalLight( 0xffffff, 1.1, -400);
-		this.loader   = new ColladaLoader();
+		this.scene     = new THREE.Scene();
+		this.scene.fog = new THREE.Fog(0xffffff, .5, 12);
+		this.camera    = new THREE.PerspectiveCamera(75, elem.offsetWidth/elem.offsetHeight, .1, 1000);
+		this.renderer  = new THREE.WebGLRenderer({alpha: true, antialias: true});
+		this.lightOne  = new THREE.DirectionalLight( 0xffffff, 1.1, -400);
+		this.lightTwo  = new THREE.DirectionalLight( 0xffffff, 1.1, -400);
+		this.loader    = new ColladaLoader();
 		
+    this.scene.fog.color.setHSL( 0.51, 0.6, 0.6 );
 		this.camera.position.set(8,1,4);
 		this.camera.up = new THREE.Vector3(0,0,1);
 		this.camera.lookAt(new THREE.Vector3(0,0,0));
