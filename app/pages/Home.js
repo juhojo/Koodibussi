@@ -62,6 +62,5 @@ export class Home extends Component {
 }
 
 React.propTypes = {
-	componentLoaded: React.PropTypes.func,
 	itemCount: React.PropTypes.number,
 }

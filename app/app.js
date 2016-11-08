@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Router, Route, IndexRoute, hashHistory, browserHistory } from 'react-router';
 import { Container } from './components/Container.js';
 import { Home } from './pages/Home.js';
-import { Contact } from './pages/Contact.js';
+import { Documentation } from './pages/Documentation.js';
 import { NotFound } from './pages/NotFound.js';
 
 class App extends Component {
@@ -13,7 +13,7 @@ class App extends Component {
 	      <Router history={hashHistory}>
 	        <Route path='/' component={Container}>
 	          <IndexRoute component={Home} />
-	          <Route path='/contact' component={Contact} />
+	          <Route path='/documentation' component={Documentation} />
 	          <Route path='*' component={NotFound} />
 	        </Route>
 	      </Router>

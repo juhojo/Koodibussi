@@ -17,7 +17,7 @@ export default class NavOpen extends Component {
 	render() {
 		let linkClasses = {
 			home: this.compareToActive("/"),
-			contact: this.compareToActive("/contact")
+			documentation: this.compareToActive("/documentation")
 		};
 		return (
 			<div>
@@ -27,8 +27,8 @@ export default class NavOpen extends Component {
 		    <Link onClick={() => { this.props.changePage('/') }} className={ linkClasses.home } id="home" to='/'>
 					<span>home</span>
 				</Link>
-		    <Link onClick={() => { this.props.changePage('/contact') }} className={ linkClasses.contact } id="contact" to='/contact'>
-					<span>contact</span>
+		    <Link onClick={() => { this.props.changePage('/documentation') }} className={ linkClasses.documentation } id="documentation" to='/documentation'>
+					<span>documentation</span>
 		    </Link>
 		  </div>
 		);

@@ -9,7 +9,6 @@ export default class Loader extends Component {
 	constructor() {
 		super();
 		this.nextFrame = null;
-
 		this.windowResize = this.windowResize.bind(this);
 	}
 
@@ -49,18 +48,6 @@ export default class Loader extends Component {
 			elem.appendChild(this.renderer.domElement);
 			this.animate.call(this);
 		});
-		
-		// this.geometry = new THREE.BoxGeometry(300, 300, 300);
-		// this.material = new THREE.MeshBasicMaterial({color: 0xff0000, wireframe: true});
-		// this.renderer = new THREE.WebGLRenderer({alpha: true, antialias: true});
-		// this.mesh     = new THREE.Mesh(this.geometry, this.material);
-
-		// this.camera.position.z = 10;
-		// this.scene.add(this.mesh);
-		// this.renderer.setSize(elem.offsetWidth, elem.offsetHeight);
-
-		// elem.appendChild(this.renderer.domElement);
-		// this.animate.call(this);
 	}
 
 	stop(){
