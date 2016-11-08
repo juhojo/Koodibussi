@@ -18,7 +18,8 @@ export class Home extends Component {
 					<TableItem
 						key={ i }
 						firstname={ faker.Name.firstName() }
-						lastname={ faker.Name.lastName() } />
+						lastname={ faker.Name.lastName() }
+						address={ faker.Address.streetAddress() } />
 				);
 				i++;
 				this.props.updateProgressBar(Math.floor(i / props.itemCount * 100));
@@ -47,8 +48,9 @@ export class Home extends Component {
 					<table ref="table">
 						<thead>
 							<tr>
-								<td>firstname</td>
-								<td>lastname</td>
+								<th>firstname</th>
+								<th>lastname</th>
+								<th>address</th>
 							</tr>
 						</thead>
 						{ tbody }

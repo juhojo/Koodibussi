@@ -8,6 +8,8 @@ export default class Loader extends Component {
 	constructor() {
 		super();
 		this.nextFrame = null;
+
+		this.windowResize = this.windowResize.bind(this);
 	}
 
 	windowResize(){
@@ -46,12 +48,12 @@ export default class Loader extends Component {
 
 	componentDidMount(){
 		this.init(ReactDOM.findDOMNode(this.refs.box));
-		window.addEventListener('resize', this.windowResize.bind(this));
+		window.addEventListener('resize', this.windowResize);
 	}
 
 	componentWillUnmount(){
 		this.stop.call(this);
-		window.removeEventListener('resize', this.windowResize.bind(this));
+		window.removeEventListener('resize', this.windowResize);
 	}
 
 	render() {

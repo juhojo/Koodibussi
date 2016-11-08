@@ -61,8 +61,30 @@ q:before, q:after {
 	content: none;
 }
 table {
-	border-collapse: collapse;
+	width: 100%;
 	border-spacing: 0;
+  border-collapse: collapse;
+}
+th, td {
+	padding: 5px;
+}
+th {
+	text-align: left;
+	background: #555;
+	color: black;
+	text-transform: uppercase;
+	height: 30px;
+}
+tr:not(last-of-type) {
+	border-bottom: 1px var(--grey-darker-light-color);
+	border-style: dashed;
+}
+thead {
+  height: 30px;
+}
+thead > tr {
+	border-bottom: 4px solid var(--grey-darker-light-color);
+	font-weight: 700;
 }
 
 
