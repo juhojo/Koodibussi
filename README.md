@@ -5,9 +5,9 @@
 ## To start developing, all you need is:
 
 * [node.js]
-npm packages:
-* `npm install`
-* `npm install -g webpack-dev-server`
+* npm packages:
+  * `npm install`
+  * `npm install -g webpack-dev-server`
 
 ## Documentation
 
