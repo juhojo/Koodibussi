@@ -45,6 +45,12 @@ export class Home extends Component {
         	renderTrackVertical={props => <div {...props} className="track-vertical"/>}
 					style={{ height: this.height }}>
 					<table ref="table">
+						<thead>
+							<tr>
+								<td>firstname</td>
+								<td>lastname</td>
+							</tr>
+						</thead>
 						{ tbody }
 					</table>
 				</Scrollbars>
