@@ -1,7 +1,7 @@
 /*
 
 
-	Tämä on tyylitiedosto.
+	Messy messy.
 
 	CONTENTS -----------
 	1. CSS RESET       -
@@ -246,6 +246,10 @@ p.navi-item {
 	position: relative;
 	width: 50vw;
 	margin: 0 auto;
+}
+
+.loading-percent {
+	float: right;
 }
 
 .three {

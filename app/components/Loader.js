@@ -72,6 +72,7 @@ export default class Loader extends Component {
 				<div className="loader-background" />
 				<div className="loader-content">
 					<div ref='box' className="three"/>
+					<span className="loading-percent">{percentage}%</span>
 					<div className="loading-bar">
 						<Line percent={ percentage.toString() } strokeWidth="1" strokeColor="#aaa" />
 					</div>

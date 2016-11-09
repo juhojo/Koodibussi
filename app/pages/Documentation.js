@@ -30,6 +30,7 @@ export class Documentation extends Component {
 				<span>Packages:</span>
 				<a href="https://github.com/ReactTraining/react-router">React Router</a>
 				<a href="https://github.com/malte-wessel/react-custom-scrollbars">React Custom Scrollbars</a>
+				<a href="https://github.com/ReactTraining/react-router/blob/v2.0.0-rc5/docs/guides/basics/Histories.md#configuring-your-server">React Router</a>
 
 			</div>
 		);
