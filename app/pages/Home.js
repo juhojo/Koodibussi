@@ -1,42 +1,18 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import faker from 'faker';
 import { Scrollbars } from 'react-custom-scrollbars';
-import TableItem from '../components/TableItem.js';
 
 export class Home extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { tbody: <tbody></tbody> };
-		let i = 0;
-		const contents = [];
-		this.populate = () => {
-			// Using setTimeout to populate the table without freezing the browser.
-			// It allows us to do the populate asyncronously.
-			setTimeout(() => {
-				contents.push(
-					<TableItem
-						key={ i }
-						firstname={ faker.Name.firstName() }
-						lastname={ faker.Name.lastName() }
-						address={ faker.Address.streetAddress() } />
-				);
-				i++;
-				this.props.updateProgressBar(Math.floor(i / props.itemCount * 100));
-				if (i < props.itemCount) this.populate();
-				else { this.setState({ tbody: <tbody>{ contents }</tbody> }); }
-			}, 0);
-		}
-		this.height = 0;
 	}
 
 	componentDidMount() {
-		this.populate.call(this);
-		this.height = ReactDOM.findDOMNode(this.refs.table).height;
+		this.props.setTableHeight(ReactDOM.findDOMNode(this.refs.table).height);
 	};
 
 	render() {
-		const { tbody } = this.state;
+		const { tbody, tableHeight } = this.props;
 		return (
 			<div>
 				<h1 className="bump-text">Koodibussi</h1>
@@ -44,7 +20,7 @@ export class Home extends Component {
 					className="table-contents"
        		renderTrackHorizontal={() => <div style={{ display: "none" }} />}
         	renderTrackVertical={props => <div {...props} className="track-vertical"/>}
-					style={{ height: this.height }}>
+					style={{ height: tableHeight }}>
 					<table ref="table">
 						<thead>
 							<tr>
@@ -62,5 +38,7 @@ export class Home extends Component {
 }
 
 React.propTypes = {
-	itemCount: React.PropTypes.number,
+	tbody: React.PropTypes.node,
+	tableHeight: React.PropTypes.number,
+	setTableHeight: React.PropTypes.func,
 }
