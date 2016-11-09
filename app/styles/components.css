@@ -65,45 +65,65 @@ h2 {
 }
 a {
 	display: block;
-	color: white;
+	color: var(--accent-color);
+	font-weight: 700;
 }
+
 table {
 	width: 100%;
 	border-spacing: 0;
   border-collapse: collapse;
 }
+
+/* 2. BASIC STYLES */
+
 th, td {
 	padding: 5px;
 }
+
 th {
 	text-align: left;
-	background: #555;
-	color: black;
+	background: var(--primary-color);
+	color: var(--text-primary-color);
 	text-transform: uppercase;
 	height: 30px;
 	line-height: 30px;
 }
+
 tr:not(last-of-type) {
-	border-bottom: 1px var(--grey-darker-light-color);
+	border-bottom: 1px var(--dark-primary-color);
 	border-style: dashed;
 }
+
 thead {
   height: 30px;
 }
+
 thead > tr {
-	border-bottom: 4px solid var(--grey-darker-light-color);
+	border-bottom: 4px solid var(--dark-primary-color);
 	font-weight: 700;
 }
 
-/* 2. BASIC STYLES */
+ol {
+	border-left: 5px solid var(--dark-primary-color);
+	background: #eee;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
 
 body {
 	margin: 0;
-	--grey-dark-color: #111;
-	--grey-basic-color: #3D3C3A;
 	--grey-light-color: #D3D3D3;
-	--grey-darker-light-color: #939393;
-	background: var(--grey-basic-color);
+	--dark-primary-color: #7B1FA2;
+	--primary-color: #9C27B0;
+	--light-primary-color: #E1BEE7;
+	--text-primary-color: #FFF;
+	--accent-color: #FF9800;
+	--primary-text-color: #212121;
+	--secondary-text-color: #757575;
+	--divider-color: #BDBDBD;
+
+	background: var(--text-primary-color);
 	font-family: 'Merriweather Sans', sans-serif;
 }
 
@@ -116,6 +136,7 @@ body {
 	text-transform: uppercase;
 	font-weight: 700;
 	font-size: 4em;
+	color: var(--light-primary-color);
 }
 
 .container {
@@ -127,7 +148,7 @@ body {
 	display: inline-block;
 	width: 200px;
 	height: 100vh;
-	background: whitesmoke;
+	background: var(--primary-color);
 	transition: width .2s;
 }
 
@@ -139,8 +160,6 @@ body {
 	height: 50px;
 	line-height: 50px;
 	transition: all .3s;
-	background-color: whitesmoke;
-	color: var(--grey-light-color);
 	text-align: center;
 }
 
@@ -149,21 +168,21 @@ body {
 }
 
 p.navi-item {
-	border-bottom: 1px solid grey;
+	border-bottom: 1px solid var(--dark-primary-color);
 }
 
 .navi-item > span {
 	line-height: 50px;
-	color: var(--grey-light-color);
+	color: var(--text-primary-color);
 	transition: color .2s;
 }
 
 .active, .active > span {
-	color: var(--grey-darker-light-color);
+	color: var(--accent-color);
 }
 
 .navi-item:hover:not(.active) > span {
-	color: black;
+	color: var(--light-primary-color);
 }
 
 .content {
@@ -176,8 +195,8 @@ p.navi-item {
 	height: 80vh;
 	width: auto;
 	overflow: hidden;
-	background: var(--grey-dark-color);
-	color: var(--grey-darker-light-color);
+	background: #eee;
+	color: var(--primary-text-color);
 }
 
 .track-vertical {
