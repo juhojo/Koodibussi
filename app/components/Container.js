@@ -16,7 +16,7 @@ export class Container extends Component {
 		};
 		this.loadingStarted = false;
 		this.percentage = 0;
-		this.itemCount = 100;
+		this.itemCount = 1000;
 
 		let i = 0;
 		const contents = [];

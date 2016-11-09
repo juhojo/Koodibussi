@@ -13,6 +13,8 @@
 
 * Three.js https://github.com/mrdoob/three.js.
 
+* Learning Three.js: http://learningthreejs.com/blog/2013/09/16/how-to-make-the-earth-in-webgl/.
+
 * If you do not have previous experience with React check: https://facebook.github.io/react/docs/thinking-in-react.html.
 
 ## Tasks
