@@ -20,18 +20,19 @@ export class Documentation extends Component {
 				  <li>*THREEJS* Loading screen camera rework.</li>
 				  <li>*THREEJS* Add some terrain to loading screen.</li>
 				</ol>
-				<h2>Optional tasks:</h2>
-				<a href="http://learningthreejs.com/blog/2013/09/16/how-to-make-the-earth-in-webgl/">Make your own three.js project.</a>
-				<h2>Documentation:</h2>
-				<span>Three.js:</span>
-				<a href="https://threejs.org/docs/index.html#Manual/Introduction/Creating_a_scene">Three.js</a>
-				<span>React:</span>
-				<a href="https://facebook.github.io/react/docs/thinking-in-react.html">Thinking in React</a>
-				<span>Packages:</span>
-				<a href="https://github.com/ReactTraining/react-router">React Router</a>
-				<a href="https://github.com/malte-wessel/react-custom-scrollbars">React Custom Scrollbars</a>
-				<a href="https://github.com/ReactTraining/react-router/blob/v2.0.0-rc5/docs/guides/basics/Histories.md#configuring-your-server">React Router</a>
-
+				<div className="link-container">
+					<h2>Optional tasks:</h2>
+					<a href="http://learningthreejs.com/blog/2013/09/16/how-to-make-the-earth-in-webgl/">Make your own three.js project.</a>
+					<h2>Documentation:</h2>
+					<span>Three.js:</span>
+					<a href="https://threejs.org/docs/index.html#Manual/Introduction/Creating_a_scene">Three.js</a>
+					<span>React:</span>
+					<a href="https://facebook.github.io/react/docs/thinking-in-react.html">Thinking in React</a>
+					<span>Packages:</span>
+					<a href="https://github.com/ReactTraining/react-router">React Router</a>
+					<a href="https://github.com/malte-wessel/react-custom-scrollbars">React Custom Scrollbars</a>
+					<a href="https://github.com/ReactTraining/react-router/blob/v2.0.0-rc5/docs/guides/basics/Histories.md#configuring-your-server">React Router</a>
+				</div>
 			</div>
 		);
 	}
