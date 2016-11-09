@@ -16,19 +16,21 @@ export class Home extends Component {
 		return (
 			<div>
 				<h1 className="bump-text">Koodibussi</h1>
+				<table>
+					<thead>
+						<tr>
+							<th>firstname</th>
+							<th>lastname</th>
+							<th>address</th>
+						</tr>
+					</thead>
+				</table>
 				<Scrollbars
 					className="table-contents"
        		renderTrackHorizontal={() => <div style={{ display: "none" }} />}
         	renderTrackVertical={props => <div {...props} className="track-vertical"/>}
 					style={{ height: tableHeight }}>
 					<table ref="table">
-						<thead>
-							<tr>
-								<th>firstname</th>
-								<th>lastname</th>
-								<th>address</th>
-							</tr>
-						</thead>
 						{ tbody }
 					</table>
 				</Scrollbars>
