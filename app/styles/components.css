@@ -9,6 +9,7 @@
 	3. TEXT STYLES     -
 	4. RESIZABLE       -
 	5. THREEJS         -
+	6. "RESPONSIVE"    -
 	--------------------
 
 
@@ -110,6 +111,7 @@ ol {
 	background: #eee;
 	padding-top: 5px;
 	padding-bottom: 5px;
+	padding-right: 10px;
 }
 
 body {
@@ -126,6 +128,7 @@ body {
 
 	background: var(--text-primary-color);
 	font-family: 'Merriweather Sans', sans-serif;
+	overflow: hidden;
 }
 
 * {
@@ -144,6 +147,14 @@ body {
 	display: flex;
 }
 
+.link-container > span {
+	font-size: 1.4em;
+}
+
+.link-container a {
+	padding: 5px;
+}
+
 .nav-container {
 	position: relative;
 	display: inline-block;
@@ -153,12 +164,8 @@ body {
 	transition: width .2s;
 }
 
-.link-container > span {
-	font-size: 1.4em;
-}
-
-.link-container a {
-	padding: 5px;
+.navi-item-container {
+	padding: 10px;
 }
 
 .navi-item {
@@ -197,6 +204,8 @@ p.navi-item {
 .content {
 	flex-grow: 1;
 	padding: 20px;
+  height: 100vh;
+  overflow: scroll;
 }
 
 .table-contents {
@@ -286,4 +295,16 @@ p.navi-item {
 	margin: 0 auto;
 	width: 50vw;
 	height: 50vh;
+}
+
+/* 6. "RESPONSIVE" */
+
+@media (max-width: 800px) {
+	.bump-text {
+		word-wrap: break-word;
+		font-size: 8vw;
+	}
+	h2 {
+		font-size: 6vw;
+	}
 }
