@@ -22,6 +22,7 @@ export default class Loader extends Component {
 	animate(){
 		this.nextFrame = requestAnimationFrame(this.animate.bind(this));
 		this.model.rotation.z -= 0.01;
+		this.model.rotation.x += 0.001;
 		this.renderer.render(this.scene, this.camera);
 	}
 
@@ -35,7 +36,7 @@ export default class Loader extends Component {
 		this.loader    = new ColladaLoader();
 		
     this.scene.fog.color.setHSL( 0.51, 0.6, 0.6 );
-		this.camera.position.set(8,1,4);
+		this.camera.position.set(6,3,5);
 		this.camera.up = new THREE.Vector3(0,0,1);
 		this.camera.lookAt(new THREE.Vector3(0,0,0));
 		this.lightOne.position.set(.3, .5, .3);
